@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+   <body style="background-color:#EAFAF1">
+      <div id="tutorial">
+         <input type="text" placeholder="Enter Tasks To Complete">
+         <button id="tutorial1">Add</button>
+         <div id="tutorial2"></div>
+      </div>
+      <script>
+         document.querySelector('#tutorial1').onclick = function(){
+            if(document.querySelector('#tutorial input').value.length == 0){
+               alert("Please Enter Task TODO")
+            } else {
+               document.querySelector('#tutorial2').innerHTML += `
+               <div class="perform">
+               ${document.querySelector('#tutorial input').value}
+               <button class="remove">Remove Task
+               <i class="far fa-trash-alt"></i>
+               </button>
+               </div>
+               `;
+               var current_tasks = document.querySelectorAll(".remove");
+               for(var i=0; i<current_tasks.length; i++){
+                  current_tasks[i].onclick = function(){
+                     this.parentNode.remove();
+                  }
+               }
+            }
+         }
+      </script>
+   </body>
+</html>
